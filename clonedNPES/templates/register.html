@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register — ANPR Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body class="bg-light">
+    <main class="container py-5">
+      <div class="row justify-content-center align-items-center" style="min-height:70vh;">
+        <div class="col-md-8 col-lg-6">
+          <div class="card shadow-lg overflow-hidden">
+            <div class="row g-0">
+              <div class="col-md-5 d-none d-md-flex bg-gradient align-items-center justify-content-center" style="background:linear-gradient(135deg,#0d6efd,#7ab8ff)">
+                <div class="text-white text-center p-4">
+                  <h3 class="mb-2">Join ANPR</h3>
+                  <p class="small">Create an account to store and view your vehicle detections.</p>
+                  <img src="/static/lock-illustration.svg" alt="lock" style="width:120px; opacity: .95;"/>
+                </div>
+              </div>
+              <div class="col-md-7">
+                <div class="card-body p-4">
+                  <h4 class="mb-3">Create account</h4>
+                  <p class="small-muted mb-3">Register a username and password to get started</p>
+                  {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                      <div class="alert alert-warning py-2">{{ messages[0] }}</div>
+                    {% endif %}
+                  {% endwith %}
+                  <form method="post" class="mb-3">
+                    <div class="mb-2">
+                      <label class="form-label small">Username</label>
+                      <input name="username" class="form-control form-control-lg" placeholder="Choose a username" required />
+                    </div>
+                    <div class="mb-2 position-relative">
+                      <label class="form-label small">Password</label>
+                      <input id="pwd1" name="password" type="password" class="form-control form-control-lg" placeholder="At least 6 characters" required />
+                      <button type="button" class="btn btn-sm btn-outline-secondary position-absolute top-50 end-0 translate-middle-y me-2" id="togglePwd1">Show</button>
+                    </div>
+                    <div class="mb-3 position-relative">
+                      <label class="form-label small">Confirm Password</label>
+                      <input id="pwd2" name="password2" type="password" class="form-control form-control-lg" placeholder="Repeat password" required />
+                      <button type="button" class="btn btn-sm btn-outline-secondary position-absolute top-50 end-0 translate-middle-y me-2" id="togglePwd2">Show</button>
+                    </div>
+                    <div class="d-grid mb-2">
+                      <button class="btn btn-primary btn-lg">Register</button>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center small-muted">
+                      <a href="/login">Already have an account?</a>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      if (window.location.protocol === 'file:') {
+        const banner = document.createElement('div');
+        banner.className = 'alert alert-info text-center';
+        banner.style.position = 'fixed';
+        banner.style.top = '0';
+        banner.style.left = '0';
+        banner.style.right = '0';
+        banner.style.zIndex = '9999';
+        banner.innerHTML = 'This page was opened from the filesystem. <a href="http://127.0.0.1:5000/register">Open register on local server</a>';
+        document.body.prepend(banner);
+      }
+      document.addEventListener('DOMContentLoaded', function(){
+        const t1 = document.getElementById('togglePwd1');
+        const t2 = document.getElementById('togglePwd2');
+        const p1 = document.getElementById('pwd1');
+        const p2 = document.getElementById('pwd2');
+        if(t1 && p1) t1.addEventListener('click', ()=>{ if(p1.type==='password'){p1.type='text'; t1.textContent='Hide'} else {p1.type='password'; t1.textContent='Show'} });
+        if(t2 && p2) t2.addEventListener('click', ()=>{ if(p2.type==='password'){p2.type='text'; t2.textContent='Hide'} else {p2.type='password'; t2.textContent='Show'} });
+      });
+    </script>
+  </body>
+</html>

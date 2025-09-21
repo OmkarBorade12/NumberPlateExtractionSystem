@@ -1,0 +1,1394 @@
+Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+
+0: 480x640 1 person, 1 dog, 617.6ms
+Speed: 34.7ms preprocess, 617.6ms inference, 45.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 314.7ms
+Speed: 7.2ms preprocess, 314.7ms inference, 3.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 253.5ms
+Speed: 3.8ms preprocess, 253.5ms inference, 6.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 233.1ms
+Speed: 4.4ms preprocess, 233.1ms inference, 4.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 257.6ms
+Speed: 4.1ms preprocess, 257.6ms inference, 4.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 chair, 252.0ms
+Speed: 3.3ms preprocess, 252.0ms inference, 4.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 255.4ms
+Speed: 4.4ms preprocess, 255.4ms inference, 3.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 225.1ms
+Speed: 4.8ms preprocess, 225.1ms inference, 3.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 237.5ms
+Speed: 3.2ms preprocess, 237.5ms inference, 3.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 248.9ms
+Speed: 3.7ms preprocess, 248.9ms inference, 3.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 189.1ms
+Speed: 4.0ms preprocess, 189.1ms inference, 4.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 252.1ms
+Speed: 4.1ms preprocess, 252.1ms inference, 2.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 212.0ms
+Speed: 3.3ms preprocess, 212.0ms inference, 5.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 129.2ms
+Speed: 3.7ms preprocess, 129.2ms inference, 2.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 131.7ms
+Speed: 1.8ms preprocess, 131.7ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 140.9ms
+Speed: 1.4ms preprocess, 140.9ms inference, 1.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 1 cell phone, 137.3ms
+Speed: 1.7ms preprocess, 137.3ms inference, 4.0ms postprocess per image at shape (1, 3, 480, 640)
+C:\Python313\Lib\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+Traceback (most recent call last):
+  File "C:\Users\borad\OneDrive\Pictures\clonedNPES\main.py", line 36, in <module>
+    save_plate_to_csv(txt)  # \u2705 Save to CSV
+    ~~~~~~~~~~~~~~~~~^^^^^
+TypeError: save_plate_to_csv() missing 1 required positional argument: 'confidence'
+Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+
+0: 480x640 1 person, 449.5ms
+Speed: 17.3ms preprocess, 449.5ms inference, 28.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 2 laptops, 272.2ms
+Speed: 8.7ms preprocess, 272.2ms inference, 3.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 laptop, 110.5ms
+Speed: 2.0ms preprocess, 110.5ms inference, 1.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 115.1ms
+Speed: 1.7ms preprocess, 115.1ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 tv, 154.2ms
+Speed: 3.4ms preprocess, 154.2ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+C:\Python313\Lib\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+0: 480x640 1 person, 1 tv, 1 laptop, 217.3ms
+Speed: 4.1ms preprocess, 217.3ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 173.0ms
+Speed: 5.0ms preprocess, 173.0ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 laptop, 177.6ms
+Speed: 4.0ms preprocess, 177.6ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 1 laptop, 150.4ms
+Speed: 1.7ms preprocess, 150.4ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 1 tv, 1 laptop, 190.4ms
+Speed: 1.9ms preprocess, 190.4ms inference, 3.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 4 persons, 1 laptop, 159.5ms
+Speed: 1.7ms preprocess, 159.5ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 tv, 172.8ms
+Speed: 2.1ms preprocess, 172.8ms inference, 1.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 tv, 196.2ms
+Speed: 3.0ms preprocess, 196.2ms inference, 1.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 161.8ms
+Speed: 1.8ms preprocess, 161.8ms inference, 2.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 tv, 149.1ms
+Speed: 2.1ms preprocess, 149.1ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 212.5ms
+Speed: 3.5ms preprocess, 212.5ms inference, 0.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 apple, 217.5ms
+Speed: 2.3ms preprocess, 217.5ms inference, 2.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 198.8ms
+Speed: 3.2ms preprocess, 198.8ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 204.4ms
+Speed: 2.6ms preprocess, 204.4ms inference, 0.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 142.4ms
+Speed: 1.4ms preprocess, 142.4ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 apple, 1 orange, 187.8ms
+Speed: 1.9ms preprocess, 187.8ms inference, 2.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 179.8ms
+Speed: 2.6ms preprocess, 179.8ms inference, 1.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 laptop, 164.2ms
+Speed: 1.3ms preprocess, 164.2ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 cell phone, 1 teddy bear, 158.8ms
+Speed: 1.8ms preprocess, 158.8ms inference, 3.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 cat, 1 laptop, 230.9ms
+Speed: 2.6ms preprocess, 230.9ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 laptop, 181.2ms
+Speed: 2.4ms preprocess, 181.2ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 laptop, 216.8ms
+Speed: 2.5ms preprocess, 216.8ms inference, 2.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 laptop, 1 cell phone, 171.4ms
+Speed: 1.8ms preprocess, 171.4ms inference, 3.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 200.4ms
+Speed: 2.3ms preprocess, 200.4ms inference, 4.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 212.4ms
+Speed: 2.1ms preprocess, 212.4ms inference, 2.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 174.8ms
+Speed: 2.5ms preprocess, 174.8ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 207.9ms
+Speed: 1.9ms preprocess, 207.9ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+
+0: 480x640 2 persons, 480.9ms
+Speed: 24.1ms preprocess, 480.9ms inference, 34.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 269.4ms
+Speed: 7.7ms preprocess, 269.4ms inference, 5.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 237.6ms
+Speed: 5.8ms preprocess, 237.6ms inference, 3.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 248.3ms
+Speed: 5.2ms preprocess, 248.3ms inference, 3.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 233.0ms
+Speed: 5.5ms preprocess, 233.0ms inference, 2.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 241.7ms
+Speed: 4.7ms preprocess, 241.7ms inference, 2.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 122.7ms
+Speed: 2.3ms preprocess, 122.7ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 183.6ms
+Speed: 2.3ms preprocess, 183.6ms inference, 7.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 188.1ms
+Speed: 3.0ms preprocess, 188.1ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 111.0ms
+Speed: 4.9ms preprocess, 111.0ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 179.0ms
+Speed: 1.6ms preprocess, 179.0ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 168.7ms
+Speed: 2.1ms preprocess, 168.7ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 178.3ms
+Speed: 2.4ms preprocess, 178.3ms inference, 2.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 176.1ms
+Speed: 2.1ms preprocess, 176.1ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 169.9ms
+Speed: 2.0ms preprocess, 169.9ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 140.4ms
+Speed: 1.4ms preprocess, 140.4ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 162.1ms
+Speed: 2.3ms preprocess, 162.1ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 140.0ms
+Speed: 1.4ms preprocess, 140.0ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 145.5ms
+Speed: 2.3ms preprocess, 145.5ms inference, 1.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 171.0ms
+Speed: 2.4ms preprocess, 171.0ms inference, 2.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 117.7ms
+Speed: 1.6ms preprocess, 117.7ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 158.7ms
+Speed: 1.3ms preprocess, 158.7ms inference, 2.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 141.2ms
+Speed: 1.3ms preprocess, 141.2ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 167.5ms
+Speed: 2.0ms preprocess, 167.5ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 177.4ms
+Speed: 3.0ms preprocess, 177.4ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 105.3ms
+Speed: 1.6ms preprocess, 105.3ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+C:\Python313\Lib\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+0: 480x640 1 person, 194.3ms
+Speed: 1.9ms preprocess, 194.3ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 150.4ms
+Speed: 3.1ms preprocess, 150.4ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 laptop, 171.0ms
+Speed: 4.1ms preprocess, 171.0ms inference, 4.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 176.6ms
+Speed: 2.7ms preprocess, 176.6ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 163.2ms
+Speed: 3.3ms preprocess, 163.2ms inference, 3.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 159.2ms
+Speed: 2.3ms preprocess, 159.2ms inference, 2.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 toilet, 161.2ms
+Speed: 2.0ms preprocess, 161.2ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 167.7ms
+Speed: 2.9ms preprocess, 167.7ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 apple, 1 orange, 159.3ms
+Speed: 2.7ms preprocess, 159.3ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 184.2ms
+Speed: 2.2ms preprocess, 184.2ms inference, 2.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 175.0ms
+Speed: 2.1ms preprocess, 175.0ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 127.9ms
+Speed: 3.2ms preprocess, 127.9ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 162.4ms
+Speed: 1.9ms preprocess, 162.4ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 148.3ms
+Speed: 1.9ms preprocess, 148.3ms inference, 2.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 vase, 160.1ms
+Speed: 2.1ms preprocess, 160.1ms inference, 2.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 177.4ms
+Speed: 2.4ms preprocess, 177.4ms inference, 4.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 158.8ms
+Speed: 2.0ms preprocess, 158.8ms inference, 2.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 186.8ms
+Speed: 2.0ms preprocess, 186.8ms inference, 3.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 187.2ms
+Speed: 2.3ms preprocess, 187.2ms inference, 1.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 163.3ms
+Speed: 2.0ms preprocess, 163.3ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 176.3ms
+Speed: 2.0ms preprocess, 176.3ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 176.5ms
+Speed: 1.9ms preprocess, 176.5ms inference, 2.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 160.4ms
+Speed: 1.9ms preprocess, 160.4ms inference, 2.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 2 toilets, 167.3ms
+Speed: 1.9ms preprocess, 167.3ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 dog, 155.2ms
+Speed: 1.8ms preprocess, 155.2ms inference, 3.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 168.4ms
+Speed: 2.2ms preprocess, 168.4ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 215.7ms
+Speed: 2.4ms preprocess, 215.7ms inference, 3.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 145.7ms
+Speed: 3.7ms preprocess, 145.7ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 198.4ms
+Speed: 2.9ms preprocess, 198.4ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 132.2ms
+Speed: 2.5ms preprocess, 132.2ms inference, 2.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 139.7ms
+Speed: 2.6ms preprocess, 139.7ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 164.5ms
+Speed: 2.2ms preprocess, 164.5ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 124.0ms
+Speed: 1.8ms preprocess, 124.0ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 156.3ms
+Speed: 2.3ms preprocess, 156.3ms inference, 2.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 teddy bear, 169.7ms
+Speed: 2.5ms preprocess, 169.7ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 160.5ms
+Speed: 1.9ms preprocess, 160.5ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 168.9ms
+Speed: 3.9ms preprocess, 168.9ms inference, 1.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 cell phone, 177.7ms
+Speed: 1.9ms preprocess, 177.7ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 223.8ms
+Speed: 5.6ms preprocess, 223.8ms inference, 2.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 toilet, 164.0ms
+Speed: 1.8ms preprocess, 164.0ms inference, 2.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 toilet, 175.0ms
+Speed: 2.1ms preprocess, 175.0ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 apple, 179.9ms
+Speed: 2.6ms preprocess, 179.9ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 apples, 192.5ms
+Speed: 2.0ms preprocess, 192.5ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 teddy bear, 188.9ms
+Speed: 2.2ms preprocess, 188.9ms inference, 2.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 teddy bear, 188.0ms
+Speed: 2.6ms preprocess, 188.0ms inference, 3.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 2 apples, 1 laptop, 165.1ms
+Speed: 1.4ms preprocess, 165.1ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 165.7ms
+Speed: 1.9ms preprocess, 165.7ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 toilet, 159.2ms
+Speed: 2.1ms preprocess, 159.2ms inference, 2.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 2 toilets, 143.7ms
+Speed: 3.3ms preprocess, 143.7ms inference, 2.9ms postprocess per image at shape (1, 3, 480, 640)
+Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+
+0: 480x640 1 person, 464.2ms
+Speed: 25.1ms preprocess, 464.2ms inference, 33.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 248.5ms
+Speed: 12.0ms preprocess, 248.5ms inference, 3.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 117.5ms
+Speed: 3.2ms preprocess, 117.5ms inference, 2.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 164.1ms
+Speed: 1.6ms preprocess, 164.1ms inference, 2.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 152.7ms
+Speed: 1.9ms preprocess, 152.7ms inference, 2.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 161.3ms
+Speed: 1.4ms preprocess, 161.3ms inference, 1.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 159.8ms
+Speed: 5.2ms preprocess, 159.8ms inference, 2.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 129.9ms
+Speed: 1.8ms preprocess, 129.9ms inference, 2.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 177.0ms
+Speed: 1.7ms preprocess, 177.0ms inference, 2.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 148.4ms
+Speed: 1.8ms preprocess, 148.4ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 149.5ms
+Speed: 1.3ms preprocess, 149.5ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 148.2ms
+Speed: 2.3ms preprocess, 148.2ms inference, 5.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 143.8ms
+Speed: 1.6ms preprocess, 143.8ms inference, 1.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 131.1ms
+Speed: 2.1ms preprocess, 131.1ms inference, 1.0ms postprocess per image at shape (1, 3, 480, 640)
+C:\Python313\Lib\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+0: 480x640 1 person, 203.7ms
+Speed: 3.4ms preprocess, 203.7ms inference, 4.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 parking meter, 164.3ms
+Speed: 2.7ms preprocess, 164.3ms inference, 3.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 chair, 1 book, 178.6ms
+Speed: 1.9ms preprocess, 178.6ms inference, 3.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 126.4ms
+Speed: 2.7ms preprocess, 126.4ms inference, 0.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 160.2ms
+Speed: 2.9ms preprocess, 160.2ms inference, 0.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 202.9ms
+Speed: 3.3ms preprocess, 202.9ms inference, 3.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 oven, 163.6ms
+Speed: 1.8ms preprocess, 163.6ms inference, 2.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 199.9ms
+Speed: 2.6ms preprocess, 199.9ms inference, 3.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 motorcycle, 1 chair, 178.9ms
+Speed: 2.5ms preprocess, 178.9ms inference, 2.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 bicycle, 1 motorcycle, 204.9ms
+Speed: 2.6ms preprocess, 204.9ms inference, 3.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 motorcycle, 168.5ms
+Speed: 2.5ms preprocess, 168.5ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 motorcycle, 173.7ms
+Speed: 4.4ms preprocess, 173.7ms inference, 2.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 motorcycle, 170.0ms
+Speed: 1.9ms preprocess, 170.0ms inference, 2.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 motorcycle, 153.0ms
+Speed: 2.8ms preprocess, 153.0ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 motorcycle, 171.3ms
+Speed: 3.3ms preprocess, 171.3ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 189.2ms
+Speed: 1.9ms preprocess, 189.2ms inference, 2.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 161.6ms
+Speed: 3.5ms preprocess, 161.6ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 154.1ms
+Speed: 2.8ms preprocess, 154.1ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 173.2ms
+Speed: 2.0ms preprocess, 173.2ms inference, 1.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 182.0ms
+Speed: 2.2ms preprocess, 182.0ms inference, 2.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 174.5ms
+Speed: 1.9ms preprocess, 174.5ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 158.1ms
+Speed: 2.0ms preprocess, 158.1ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+
+0: 480x640 1 person, 1 laptop, 464.7ms
+Speed: 18.9ms preprocess, 464.7ms inference, 32.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 264.7ms
+Speed: 4.9ms preprocess, 264.7ms inference, 3.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 laptop, 224.1ms
+Speed: 6.3ms preprocess, 224.1ms inference, 2.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 chair, 1 laptop, 97.5ms
+Speed: 2.0ms preprocess, 97.5ms inference, 1.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 2 laptops, 135.8ms
+Speed: 2.7ms preprocess, 135.8ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 laptop, 156.6ms
+Speed: 3.5ms preprocess, 156.6ms inference, 2.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 laptop, 137.6ms
+Speed: 1.3ms preprocess, 137.6ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 2 laptops, 117.0ms
+Speed: 1.2ms preprocess, 117.0ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 119.8ms
+Speed: 1.9ms preprocess, 119.8ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 168.8ms
+Speed: 1.9ms preprocess, 168.8ms inference, 2.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 126.4ms
+Speed: 2.4ms preprocess, 126.4ms inference, 1.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 tv, 147.0ms
+Speed: 6.3ms preprocess, 147.0ms inference, 2.2ms postprocess per image at shape (1, 3, 480, 640)
+C:\Python313\Lib\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+0: 480x640 2 persons, 1 cell phone, 244.2ms
+Speed: 2.8ms preprocess, 244.2ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 166.0ms
+Speed: 2.6ms preprocess, 166.0ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 110.4ms
+Speed: 1.4ms preprocess, 110.4ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 130.6ms
+Speed: 2.1ms preprocess, 130.6ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 refrigerator, 157.2ms
+Speed: 1.6ms preprocess, 157.2ms inference, 2.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 donut, 1 cell phone, 155.9ms
+Speed: 1.4ms preprocess, 155.9ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 177.9ms
+Speed: 1.6ms preprocess, 177.9ms inference, 2.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 tv, 1 cell phone, 140.0ms
+Speed: 5.3ms preprocess, 140.0ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 tv, 182.4ms
+Speed: 1.8ms preprocess, 182.4ms inference, 2.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 136.9ms
+Speed: 1.8ms preprocess, 136.9ms inference, 2.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 150.5ms
+Speed: 2.3ms preprocess, 150.5ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 refrigerator, 171.5ms
+Speed: 2.0ms preprocess, 171.5ms inference, 2.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 laptop, 149.4ms
+Speed: 2.1ms preprocess, 149.4ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 138.5ms
+Speed: 4.4ms preprocess, 138.5ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 133.1ms
+Speed: 2.0ms preprocess, 133.1ms inference, 1.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 157.9ms
+Speed: 1.6ms preprocess, 157.9ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 teddy bear, 156.1ms
+Speed: 2.3ms preprocess, 156.1ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 170.4ms
+Speed: 1.8ms preprocess, 170.4ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 125.7ms
+Speed: 1.5ms preprocess, 125.7ms inference, 0.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 177.7ms
+Speed: 2.5ms preprocess, 177.7ms inference, 1.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 cat, 174.4ms
+Speed: 2.0ms preprocess, 174.4ms inference, 2.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 teddy bear, 144.3ms
+Speed: 1.8ms preprocess, 144.3ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 laptop, 166.9ms
+Speed: 1.8ms preprocess, 166.9ms inference, 2.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 laptop, 177.1ms
+Speed: 2.3ms preprocess, 177.1ms inference, 3.7ms postprocess per image at shape (1, 3, 480, 640)
+Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+
+0: 480x640 1 person, 494.8ms
+Speed: 22.6ms preprocess, 494.8ms inference, 28.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 cell phone, 290.1ms
+Speed: 6.2ms preprocess, 290.1ms inference, 3.7ms postprocess per image at shape (1, 3, 480, 640)
+C:\Python313\Lib\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+0: 480x640 3 persons, 1 cell phone, 1 book, 147.9ms
+Speed: 3.7ms preprocess, 147.9ms inference, 2.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 1 cell phone, 1 book, 135.8ms
+Speed: 3.2ms preprocess, 135.8ms inference, 2.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 laptop, 1 cell phone, 1 book, 167.8ms
+Speed: 2.5ms preprocess, 167.8ms inference, 2.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 laptop, 136.0ms
+Speed: 3.3ms preprocess, 136.0ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 134.8ms
+Speed: 2.6ms preprocess, 134.8ms inference, 2.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 125.9ms
+Speed: 1.9ms preprocess, 125.9ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 laptop, 157.1ms
+Speed: 3.2ms preprocess, 157.1ms inference, 1.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 laptop, 178.2ms
+Speed: 2.7ms preprocess, 178.2ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 168.6ms
+Speed: 1.8ms preprocess, 168.6ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 cell phone, 192.5ms
+Speed: 2.4ms preprocess, 192.5ms inference, 4.7ms postprocess per image at shape (1, 3, 480, 640)
+Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+
+0: 480x640 1 person, 505.2ms
+Speed: 19.0ms preprocess, 505.2ms inference, 30.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 223.2ms
+Speed: 7.3ms preprocess, 223.2ms inference, 2.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 223.0ms
+Speed: 3.8ms preprocess, 223.0ms inference, 3.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 114.4ms
+Speed: 1.4ms preprocess, 114.4ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 129.3ms
+Speed: 2.0ms preprocess, 129.3ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 131.8ms
+Speed: 1.3ms preprocess, 131.8ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 parking meter, 1 cell phone, 209.2ms
+Speed: 1.9ms preprocess, 209.2ms inference, 4.2ms postprocess per image at shape (1, 3, 480, 640)
+C:\Python313\Lib\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+0: 480x640 1 cell phone, 176.5ms
+Speed: 4.4ms preprocess, 176.5ms inference, 2.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 164.8ms
+Speed: 3.0ms preprocess, 164.8ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 donut, 1 cell phone, 131.9ms
+Speed: 1.7ms preprocess, 131.9ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 170.6ms
+Speed: 2.4ms preprocess, 170.6ms inference, 0.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 192.4ms
+Speed: 4.3ms preprocess, 192.4ms inference, 1.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 parking meter, 1 cell phone, 152.0ms
+Speed: 1.9ms preprocess, 152.0ms inference, 3.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 refrigerator, 123.4ms
+Speed: 1.6ms preprocess, 123.4ms inference, 2.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 parking meter, 207.8ms
+Speed: 3.5ms preprocess, 207.8ms inference, 2.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 cell phone, 183.4ms
+Speed: 3.7ms preprocess, 183.4ms inference, 3.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 182.3ms
+Speed: 2.1ms preprocess, 182.3ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 134.2ms
+Speed: 1.2ms preprocess, 134.2ms inference, 1.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 laptop, 142.2ms
+Speed: 3.4ms preprocess, 142.2ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 traffic light, 161.4ms
+Speed: 2.5ms preprocess, 161.4ms inference, 2.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 traffic light, 145.8ms
+Speed: 1.9ms preprocess, 145.8ms inference, 2.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 traffic light, 166.6ms
+Speed: 2.1ms preprocess, 166.6ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 traffic light, 191.8ms
+Speed: 2.3ms preprocess, 191.8ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 traffic light, 1 parking meter, 174.4ms
+Speed: 2.2ms preprocess, 174.4ms inference, 2.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 traffic light, 168.9ms
+Speed: 2.3ms preprocess, 168.9ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 traffic light, 1 knife, 203.4ms
+Speed: 3.5ms preprocess, 203.4ms inference, 2.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 traffic light, 1 knife, 173.5ms
+Speed: 3.7ms preprocess, 173.5ms inference, 2.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 traffic light, 169.5ms
+Speed: 2.7ms preprocess, 169.5ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 traffic light, 197.5ms
+Speed: 2.6ms preprocess, 197.5ms inference, 2.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 traffic light, 144.5ms
+Speed: 1.7ms preprocess, 144.5ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 traffic light, 160.1ms
+Speed: 2.1ms preprocess, 160.1ms inference, 2.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 traffic light, 1 teddy bear, 169.2ms
+Speed: 2.0ms preprocess, 169.2ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 traffic light, 1 knife, 195.8ms
+Speed: 2.7ms preprocess, 195.8ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 traffic lights, 1 knife, 170.0ms
+Speed: 3.1ms preprocess, 170.0ms inference, 2.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 traffic light, 169.0ms
+Speed: 1.6ms preprocess, 169.0ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 teddy bear, 184.4ms
+Speed: 3.0ms preprocess, 184.4ms inference, 2.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 traffic light, 190.0ms
+Speed: 2.3ms preprocess, 190.0ms inference, 0.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 173.3ms
+Speed: 1.6ms preprocess, 173.3ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 168.1ms
+Speed: 4.3ms preprocess, 168.1ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 traffic lights, 154.7ms
+Speed: 2.3ms preprocess, 154.7ms inference, 5.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 traffic lights, 181.8ms
+Speed: 4.7ms preprocess, 181.8ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 traffic lights, 192.3ms
+Speed: 1.9ms preprocess, 192.3ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 traffic lights, 169.1ms
+Speed: 2.1ms preprocess, 169.1ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 traffic lights, 190.2ms
+Speed: 2.4ms preprocess, 190.2ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 traffic lights, 163.0ms
+Speed: 1.8ms preprocess, 163.0ms inference, 3.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 traffic light, 160.5ms
+Speed: 3.9ms preprocess, 160.5ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 traffic light, 1 teddy bear, 156.0ms
+Speed: 1.6ms preprocess, 156.0ms inference, 2.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 180.9ms
+Speed: 2.3ms preprocess, 180.9ms inference, 2.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 165.4ms
+Speed: 2.4ms preprocess, 165.4ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 172.0ms
+Speed: 3.2ms preprocess, 172.0ms inference, 2.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 180.5ms
+Speed: 2.0ms preprocess, 180.5ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 202.8ms
+Speed: 2.3ms preprocess, 202.8ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 200.5ms
+Speed: 1.7ms preprocess, 200.5ms inference, 1.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 traffic light, 128.0ms
+Speed: 1.9ms preprocess, 128.0ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 144.9ms
+Speed: 2.3ms preprocess, 144.9ms inference, 1.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 190.3ms
+Speed: 2.3ms preprocess, 190.3ms inference, 2.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 181.9ms
+Speed: 2.0ms preprocess, 181.9ms inference, 2.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 188.2ms
+Speed: 2.6ms preprocess, 188.2ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 183.3ms
+Speed: 1.7ms preprocess, 183.3ms inference, 3.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 196.5ms
+Speed: 4.0ms preprocess, 196.5ms inference, 1.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 183.7ms
+Speed: 2.0ms preprocess, 183.7ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 186.5ms
+Speed: 2.1ms preprocess, 186.5ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 152.9ms
+Speed: 2.0ms preprocess, 152.9ms inference, 1.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 171.4ms
+Speed: 2.1ms preprocess, 171.4ms inference, 2.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 161.3ms
+Speed: 2.1ms preprocess, 161.3ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 172.0ms
+Speed: 2.8ms preprocess, 172.0ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 174.4ms
+Speed: 2.3ms preprocess, 174.4ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 toilet, 190.1ms
+Speed: 1.9ms preprocess, 190.1ms inference, 1.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 traffic light, 155.8ms
+Speed: 1.5ms preprocess, 155.8ms inference, 3.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 169.6ms
+Speed: 2.5ms preprocess, 169.6ms inference, 1.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 traffic light, 1 parking meter, 1 book, 171.7ms
+Speed: 1.8ms preprocess, 171.7ms inference, 3.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 158.0ms
+Speed: 3.0ms preprocess, 158.0ms inference, 2.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 181.9ms
+Speed: 1.6ms preprocess, 181.9ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 178.7ms
+Speed: 1.3ms preprocess, 178.7ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 184.2ms
+Speed: 1.3ms preprocess, 184.2ms inference, 2.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 162.1ms
+Speed: 1.4ms preprocess, 162.1ms inference, 2.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 171.7ms
+Speed: 1.7ms preprocess, 171.7ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 170.5ms
+Speed: 1.4ms preprocess, 170.5ms inference, 1.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 175.2ms
+Speed: 3.5ms preprocess, 175.2ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 177.4ms
+Speed: 1.2ms preprocess, 177.4ms inference, 3.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 154.0ms
+Speed: 1.3ms preprocess, 154.0ms inference, 3.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 147.9ms
+Speed: 1.9ms preprocess, 147.9ms inference, 1.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 167.6ms
+Speed: 4.1ms preprocess, 167.6ms inference, 0.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 cell phone, 185.0ms
+Speed: 2.0ms preprocess, 185.0ms inference, 2.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 cell phone, 178.9ms
+Speed: 1.9ms preprocess, 178.9ms inference, 1.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 cell phone, 158.7ms
+Speed: 2.9ms preprocess, 158.7ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 cell phone, 148.9ms
+Speed: 1.7ms preprocess, 148.9ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 cell phone, 214.3ms
+Speed: 2.3ms preprocess, 214.3ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 259.0ms
+Speed: 2.7ms preprocess, 259.0ms inference, 2.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 donut, 168.5ms
+Speed: 2.6ms preprocess, 168.5ms inference, 1.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 166.9ms
+Speed: 1.4ms preprocess, 166.9ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 180.2ms
+Speed: 2.1ms preprocess, 180.2ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 157.4ms
+Speed: 2.2ms preprocess, 157.4ms inference, 4.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 127.4ms
+Speed: 2.1ms preprocess, 127.4ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 149.2ms
+Speed: 2.9ms preprocess, 149.2ms inference, 2.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 traffic light, 159.4ms
+Speed: 2.5ms preprocess, 159.4ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 157.7ms
+Speed: 2.2ms preprocess, 157.7ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 152.4ms
+Speed: 2.3ms preprocess, 152.4ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 156.4ms
+Speed: 2.3ms preprocess, 156.4ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 172.6ms
+Speed: 1.8ms preprocess, 172.6ms inference, 2.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 175.9ms
+Speed: 2.2ms preprocess, 175.9ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 143.8ms
+Speed: 2.5ms preprocess, 143.8ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 traffic light, 143.4ms
+Speed: 2.3ms preprocess, 143.4ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 traffic light, 151.3ms
+Speed: 3.7ms preprocess, 151.3ms inference, 2.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 traffic light, 159.9ms
+Speed: 2.6ms preprocess, 159.9ms inference, 2.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 traffic light, 144.4ms
+Speed: 2.0ms preprocess, 144.4ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 traffic light, 151.3ms
+Speed: 2.1ms preprocess, 151.3ms inference, 2.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 143.0ms
+Speed: 2.1ms preprocess, 143.0ms inference, 2.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 140.9ms
+Speed: 2.9ms preprocess, 140.9ms inference, 2.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 148.3ms
+Speed: 2.7ms preprocess, 148.3ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 160.9ms
+Speed: 2.6ms preprocess, 160.9ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 151.1ms
+Speed: 1.8ms preprocess, 151.1ms inference, 2.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 146.5ms
+Speed: 2.4ms preprocess, 146.5ms inference, 2.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 traffic light, 224.0ms
+Speed: 3.1ms preprocess, 224.0ms inference, 1.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 214.8ms
+Speed: 2.8ms preprocess, 214.8ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 traffic light, 192.7ms
+Speed: 2.2ms preprocess, 192.7ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 213.0ms
+Speed: 1.8ms preprocess, 213.0ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 207.9ms
+Speed: 1.9ms preprocess, 207.9ms inference, 2.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 159.2ms
+Speed: 3.1ms preprocess, 159.2ms inference, 2.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 4 persons, 1 cat, 220.4ms
+Speed: 2.7ms preprocess, 220.4ms inference, 1.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 226.0ms
+Speed: 3.2ms preprocess, 226.0ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 216.9ms
+Speed: 2.4ms preprocess, 216.9ms inference, 1.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 215.5ms
+Speed: 3.6ms preprocess, 215.5ms inference, 2.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 parking meter, 215.6ms
+Speed: 2.9ms preprocess, 215.6ms inference, 2.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 241.8ms
+Speed: 2.5ms preprocess, 241.8ms inference, 2.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 cat, 146.5ms
+Speed: 6.2ms preprocess, 146.5ms inference, 1.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 212.0ms
+Speed: 2.2ms preprocess, 212.0ms inference, 6.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 207.3ms
+Speed: 2.7ms preprocess, 207.3ms inference, 0.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 255.3ms
+Speed: 3.0ms preprocess, 255.3ms inference, 0.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 151.2ms
+Speed: 4.7ms preprocess, 151.2ms inference, 0.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 traffic light, 207.3ms
+Speed: 1.8ms preprocess, 207.3ms inference, 2.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 187.7ms
+Speed: 2.1ms preprocess, 187.7ms inference, 3.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 210.7ms
+Speed: 3.0ms preprocess, 210.7ms inference, 1.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 156.7ms
+Speed: 2.2ms preprocess, 156.7ms inference, 2.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 traffic light, 141.0ms
+Speed: 2.3ms preprocess, 141.0ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 154.1ms
+Speed: 2.1ms preprocess, 154.1ms inference, 0.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 168.3ms
+Speed: 2.4ms preprocess, 168.3ms inference, 0.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 146.9ms
+Speed: 1.8ms preprocess, 146.9ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 208.1ms
+Speed: 3.2ms preprocess, 208.1ms inference, 1.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 145.1ms
+Speed: 2.1ms preprocess, 145.1ms inference, 1.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 194.1ms
+Speed: 1.9ms preprocess, 194.1ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 165.3ms
+Speed: 3.0ms preprocess, 165.3ms inference, 2.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 186.0ms
+Speed: 2.4ms preprocess, 186.0ms inference, 2.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 188.3ms
+Speed: 3.2ms preprocess, 188.3ms inference, 2.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 158.8ms
+Speed: 2.4ms preprocess, 158.8ms inference, 4.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 178.1ms
+Speed: 1.9ms preprocess, 178.1ms inference, 4.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 196.2ms
+Speed: 4.2ms preprocess, 196.2ms inference, 4.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 204.7ms
+Speed: 2.2ms preprocess, 204.7ms inference, 1.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 172.4ms
+Speed: 2.6ms preprocess, 172.4ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 189.8ms
+Speed: 2.1ms preprocess, 189.8ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+
+0: 480x640 1 person, 405.5ms
+Speed: 18.0ms preprocess, 405.5ms inference, 24.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 190.9ms
+Speed: 3.2ms preprocess, 190.9ms inference, 3.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 206.4ms
+Speed: 3.7ms preprocess, 206.4ms inference, 2.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 2 books, 131.9ms
+Speed: 1.5ms preprocess, 131.9ms inference, 2.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 201.4ms
+Speed: 4.5ms preprocess, 201.4ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 book, 184.5ms
+Speed: 2.9ms preprocess, 184.5ms inference, 2.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 186.4ms
+Speed: 2.1ms preprocess, 186.4ms inference, 1.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 donut, 173.8ms
+Speed: 3.6ms preprocess, 173.8ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 book, 209.8ms
+Speed: 3.4ms preprocess, 209.8ms inference, 4.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 book, 138.0ms
+Speed: 2.3ms preprocess, 138.0ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 book, 163.1ms
+Speed: 2.9ms preprocess, 163.1ms inference, 2.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 donut, 153.0ms
+Speed: 2.1ms preprocess, 153.0ms inference, 2.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 146.2ms
+Speed: 2.6ms preprocess, 146.2ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 152.3ms
+Speed: 2.3ms preprocess, 152.3ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 book, 139.0ms
+Speed: 1.9ms preprocess, 139.0ms inference, 2.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 147.5ms
+Speed: 2.6ms preprocess, 147.5ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+
+0: 480x640 1 person, 374.3ms
+Speed: 22.6ms preprocess, 374.3ms inference, 24.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 229.8ms
+Speed: 4.1ms preprocess, 229.8ms inference, 16.4ms postprocess per image at shape (1, 3, 480, 640)
+Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+
+0: 480x640 5 persons, 1 cell phone, 507.6ms
+Speed: 15.6ms preprocess, 507.6ms inference, 43.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 cell phone, 267.2ms
+Speed: 7.8ms preprocess, 267.2ms inference, 3.5ms postprocess per image at shape (1, 3, 480, 640)
+C:\Python313\Lib\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+0: 480x640 1 parking meter, 1 cell phone, 245.2ms
+Speed: 4.6ms preprocess, 245.2ms inference, 3.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 311.9ms
+Speed: 5.2ms preprocess, 311.9ms inference, 3.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 193.4ms
+Speed: 4.1ms preprocess, 193.4ms inference, 2.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 233.6ms
+Speed: 4.4ms preprocess, 233.6ms inference, 3.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 286.3ms
+Speed: 4.7ms preprocess, 286.3ms inference, 3.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 4 persons, 1 cell phone, 260.9ms
+Speed: 5.1ms preprocess, 260.9ms inference, 3.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 4 persons, 263.3ms
+Speed: 5.5ms preprocess, 263.3ms inference, 3.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 265.4ms
+Speed: 3.6ms preprocess, 265.4ms inference, 3.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 2 skiss, 251.4ms
+Speed: 3.5ms preprocess, 251.4ms inference, 2.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 refrigerator, 255.2ms
+Speed: 3.6ms preprocess, 255.2ms inference, 3.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 295.2ms
+Speed: 7.5ms preprocess, 295.2ms inference, 3.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 cell phone, 250.1ms
+Speed: 4.0ms preprocess, 250.1ms inference, 4.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 235.9ms
+Speed: 3.5ms preprocess, 235.9ms inference, 4.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 247.3ms
+Speed: 4.3ms preprocess, 247.3ms inference, 2.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 249.7ms
+Speed: 3.4ms preprocess, 249.7ms inference, 4.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 110.3ms
+Speed: 2.2ms preprocess, 110.3ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 176.7ms
+Speed: 2.1ms preprocess, 176.7ms inference, 2.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 201.1ms
+Speed: 1.6ms preprocess, 201.1ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 220.4ms
+Speed: 4.2ms preprocess, 220.4ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 1 cell phone, 187.6ms
+Speed: 1.5ms preprocess, 187.6ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 179.7ms
+Speed: 2.3ms preprocess, 179.7ms inference, 1.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 200.4ms
+Speed: 2.1ms preprocess, 200.4ms inference, 1.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 205.7ms
+Speed: 2.3ms preprocess, 205.7ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 3 persons, 144.0ms
+Speed: 1.3ms preprocess, 144.0ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 114.7ms
+Speed: 1.6ms preprocess, 114.7ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 138.8ms
+Speed: 2.2ms preprocess, 138.8ms inference, 2.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 205.5ms
+Speed: 1.9ms preprocess, 205.5ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 190.2ms
+Speed: 1.7ms preprocess, 190.2ms inference, 3.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 153.0ms
+Speed: 2.9ms preprocess, 153.0ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 130.3ms
+Speed: 1.7ms preprocess, 130.3ms inference, 1.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 cell phone, 144.7ms
+Speed: 1.4ms preprocess, 144.7ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 cell phone, 159.1ms
+Speed: 1.8ms preprocess, 159.1ms inference, 2.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 kite, 191.3ms
+Speed: 2.2ms preprocess, 191.3ms inference, 3.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 160.4ms
+Speed: 4.2ms preprocess, 160.4ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 208.8ms
+Speed: 1.8ms preprocess, 208.8ms inference, 2.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 186.7ms
+Speed: 3.6ms preprocess, 186.7ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 skis, 187.6ms
+Speed: 3.4ms preprocess, 187.6ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 131.0ms
+Speed: 2.3ms preprocess, 131.0ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+
+0: 480x640 1 cat, 406.4ms
+Speed: 15.3ms preprocess, 406.4ms inference, 22.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 184.4ms
+Speed: 6.0ms preprocess, 184.4ms inference, 2.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 176.0ms
+Speed: 3.9ms preprocess, 176.0ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 140.9ms
+Speed: 2.7ms preprocess, 140.9ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 cell phone, 191.6ms
+Speed: 3.0ms preprocess, 191.6ms inference, 2.3ms postprocess per image at shape (1, 3, 480, 640)
+C:\Python313\Lib\site-packages\torch\utils\data\dataloader.py:665: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  warnings.warn(warn_msg)
+
+0: 480x640 1 person, 1 parking meter, 2 books, 154.9ms
+Speed: 2.5ms preprocess, 154.9ms inference, 2.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 160.7ms
+Speed: 3.8ms preprocess, 160.7ms inference, 2.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 parking meter, 1 cell phone, 195.1ms
+Speed: 4.3ms preprocess, 195.1ms inference, 2.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 traffic light, 243.5ms
+Speed: 2.4ms preprocess, 243.5ms inference, 3.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 184.2ms
+Speed: 2.1ms preprocess, 184.2ms inference, 3.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 146.8ms
+Speed: 2.8ms preprocess, 146.8ms inference, 2.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 140.5ms
+Speed: 1.6ms preprocess, 140.5ms inference, 2.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 refrigerator, 158.0ms
+Speed: 2.0ms preprocess, 158.0ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 167.9ms
+Speed: 1.5ms preprocess, 167.9ms inference, 0.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 186.1ms
+Speed: 2.2ms preprocess, 186.1ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 111.9ms
+Speed: 1.8ms preprocess, 111.9ms inference, 1.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 88.8ms
+Speed: 1.2ms preprocess, 88.8ms inference, 1.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 104.6ms
+Speed: 1.0ms preprocess, 104.6ms inference, 0.9ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 121.8ms
+Speed: 1.3ms preprocess, 121.8ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 171.5ms
+Speed: 2.2ms preprocess, 171.5ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 cell phone, 143.0ms
+Speed: 2.4ms preprocess, 143.0ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 cell phone, 163.9ms
+Speed: 2.4ms preprocess, 163.9ms inference, 1.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 cell phone, 150.8ms
+Speed: 2.5ms preprocess, 150.8ms inference, 2.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 tv, 1 cell phone, 163.0ms
+Speed: 2.3ms preprocess, 163.0ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 132.2ms
+Speed: 3.2ms preprocess, 132.2ms inference, 1.0ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 155.0ms
+Speed: 1.4ms preprocess, 155.0ms inference, 1.5ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 156.4ms
+Speed: 2.2ms preprocess, 156.4ms inference, 1.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 149.9ms
+Speed: 2.2ms preprocess, 149.9ms inference, 0.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 158.6ms
+Speed: 2.7ms preprocess, 158.6ms inference, 1.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 142.6ms
+Speed: 1.6ms preprocess, 142.6ms inference, 1.2ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 138.4ms
+Speed: 2.0ms preprocess, 138.4ms inference, 2.4ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 156.0ms
+Speed: 2.3ms preprocess, 156.0ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 185.2ms
+Speed: 2.2ms preprocess, 185.2ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 (no detections), 140.0ms
+Speed: 2.1ms preprocess, 140.0ms inference, 0.8ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 2 persons, 1 cat, 132.2ms
+Speed: 2.7ms preprocess, 132.2ms inference, 1.7ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 remote, 139.0ms
+Speed: 2.5ms preprocess, 139.0ms inference, 2.1ms postprocess per image at shape (1, 3, 480, 640)
+
+0: 480x640 1 person, 1 hot dog, 149.2ms
+Speed: 2.1ms preprocess, 149.2ms inference, 1.3ms postprocess per image at shape (1, 3, 480, 640)
