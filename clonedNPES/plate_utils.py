@@ -2,6 +2,10 @@ import csv
 import os
 import re
 from datetime import datetime
+try:
+    from database_utils import save_detection_to_db
+except ImportError:
+    save_detection_to_db = None
 
 filename = 'detected_plates.csv'
 snapshot_dir = 'snapshots'
@@ -12,17 +16,32 @@ existing_plates = {}
 last_seen = {}
 # make dedupe window configurable via environment variable
 import os
-DEDUPE_SECONDS = int(os.environ.get('WEBAPP_DEDUPE_SECONDS', '40'))
+DEDUPE_SECONDS = int(os.environ.get('WEBAPP_DEDUPE_SECONDS', '5'))
 
 def normalize_plate(text):
     text = text.upper().strip()
+    # Don't normalize placeholders
+    if text in ["PLATE", "NO OCR", "UNKNOWN"]:
+        return text
     text = re.sub(r'\s+', ' ', text)
     text = text.replace('O', '0').replace('I', '1')
     return text
 
 def is_valid_plate(text):
-    pattern = r'^[A-Z]{2,3}\s?\d{1,2}\s?[A-Z]{1,3}\s?\d{1,4}$'
-    return re.match(pattern, text) is not None
+    # Allow specific placeholders for manual review
+    if text in ["PLATE", "NO OCR", "UNKNOWN"]:
+        return True
+    
+    # Relaxed pattern: At least 4 characters, mix of letters and numbers
+    # Primary Indian format: AA 00 AA 0000 or AA00AA0000
+    if len(text) < 4:
+        return False
+        
+    # Check if has at least some numbers (most plates do)
+    if not any(char.isdigit() for char in text):
+        return False
+        
+    return True
 
 def initialize_plate_cache():
     global existing_plates
@@ -163,6 +182,14 @@ def save_plate_to_csv(plate_text, confidence=1.0, threshold=0.6, plate_img=None)
             fieldnames = ['Plate Text', 'Date', 'Time', 'Image Path', 'User']
             writer = csv.DictWriter(file, fieldnames=fieldnames)
             writer.writerow({'Plate Text': plate_text, 'Date': date_str, 'Time': time_str, 'Image Path': image_path, 'User': username})
+        
+        # Save to database if available
+        if save_detection_to_db:
+            try:
+                save_detection_to_db(plate_text, confidence, image_path, user=username)
+            except Exception as e:
+                print(f"Failed via DB util: {e}")
+
     except Exception:
         # fallback: append CSV row using writer directly
         with open(filename, mode='a', newline='', encoding='utf-8') as file:

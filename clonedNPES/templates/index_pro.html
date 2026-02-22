@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANPR Pro - Professional License Plate Recognition System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/static/styles_pro.css">
+</head>
+
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass-effect">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-icon">
+                    <i class="fas fa-car-side"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>ANPR<span class="pro-badge">PRO</span></h1>
+                    <p>Professional Grade Recognition</p>
+                </div>
+            </div>
+
+            <div class="nav-controls">
+                <div class="status-indicator" id="systemStatus">
+                    <span class="status-dot status-stopped"></span>
+                    <span class="status-text">System Stopped</span>
+                </div>
+
+                <button class="btn btn-success" id="startBtn">
+                    <i class="fas fa-play"></i>
+                    <span>Start Detection</span>
+                </button>
+
+                <button class="btn btn-danger" id="stopBtn" style="display: none;">
+                    <i class="fas fa-stop"></i>
+                    <span>Stop</span>
+                </button>
+
+                <button class="btn btn-secondary" id="refreshBtn">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+
+                {% if session.user %}
+                <div class="user-menu">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <span class="user-name">{{ session.user }}</span>
+                    <a href="/logout" class="btn btn-outline">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                </div>
+                {% else %}
+                <a href="/login" class="btn btn-primary">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span>Login</span>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert alert-info animate-slide-down">
+            <i class="fas fa-info-circle"></i>
+            <span>{{ messages[0] }}</span>
+            <button class="alert-close" onclick="this.parentElement.remove()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        <!-- Stats Dashboard -->
+        <div class="stats-grid">
+            <div class="stat-card glass-effect animate-fade-in" style="animation-delay: 0.1s">
+                <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <i class="fas fa-database"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="statTotal">0</h3>
+                    <p>Total Detections</p>
+                    <div class="stat-trend">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>Live</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card glass-effect animate-fade-in" style="animation-delay: 0.2s">
+                <div class="stat-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <i class="fas fa-hashtag"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="statUnique">0</h3>
+                    <p>Unique Plates</p>
+                    <div class="stat-trend">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Today</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card glass-effect animate-fade-in" style="animation-delay: 0.3s">
+                <div class="stat-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="statImages">0</h3>
+                    <p>Snapshots Saved</p>
+                    <div class="stat-trend">
+                        <i class="fas fa-images"></i>
+                        <span>Gallery</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card glass-effect animate-fade-in" style="animation-delay: 0.4s">
+                <div class="stat-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                    <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="statPerformance">0ms</h3>
+                    <p>Avg Response Time</p>
+                    <div class="stat-trend">
+                        <i class="fas fa-bolt"></i>
+                        <span>Real-time</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Camera Feed --  >
+        <div class="video-section glass-effect animate-fade-in" style="animation-delay: 0.5s" id="videoSection">
+            <div class="section-header">
+                <h2><i class="fas fa-video"></i> Live Camera Feed</h2>
+                <div class="video-controls">
+                    <button class="btn btn-sm btn-outline" id="toggleVideoBtn">
+                        <i class="fas fa-eye"></i>
+                        <span>Hide Feed</span>
+                    </button>
+                    <button class="btn btn-sm btn-primary" id="fullscreenBtn">
+                        <i class="fas fa-expand"></i>
+                        <span>Fullscreen</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="video-container" id="videoContainer">
+                <img id="videoFeed" src="/api/video_feed" alt="Live Camera Feed" class="video-feed">
+                <div class="video-overlay">
+                    <div class="video-stats">
+                        <div class="video-stat">
+                            <i class="fas fa-video"></i>
+                            <span id="videoMode">Initializing...</span>
+                        </div>
+                        <div class="video-stat">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span id="videoFPS">0 FPS</span>
+                        </div>
+                        <div class="video-stat">
+                            <i class="fas fa-check-circle"></i>
+                            <span id="videoDetections">0 Detections</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-placeholder" id="videoPlaceholder">
+                    <i class="fas fa-camera"></i>
+                    <p>Click "Start Detection" to begin live feed</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Control Panel -->
+        <div class="control-panel glass-effect animate-fade-in" style="animation-delay: 0.5s">
+            <div class="panel-header">
+                <h2><i class="fas fa-sliders-h"></i> Control Panel</h2>
+                <div class="panel-actions">
+                    <button class="btn btn-sm btn-outline" id="logsBtn">
+                        <i class="fas fa-terminal"></i>
+                        <span>View Logs</span>
+                    </button>
+                    <button class="btn btn-sm btn-primary" id="exportBtn">
+                        <i class="fas fa-download"></i>
+                        <span>Export Data</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="panel-content">
+                <div class="search-filters">
+                    <div class="filter-group">
+                        <label><i class="fas fa-search"></i> Search Plate</label>
+                        <input type="text" id="plateFilter" placeholder="Enter plate number..." class="input-field">
+                    </div>
+
+                    <div class="filter-group">
+                        <label><i class="fas fa-calendar"></i> Filter by Date</label>
+                        <input type="date" id="dateFilter" class="input-field">
+                    </div>
+
+                    <div class="filter-group">
+                        <label><i class="fas fa-eye"></i> View Mode</label>
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="cards">
+                                <i class="fas fa-th-large"></i>
+                                <span>Cards</span>
+                            </button>
+                            <button class="view-btn" data-view="table">
+                                <i class="fas fa-table"></i>
+                                <span>Table</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detection Results -->
+        <div class="results-section animate-fade-in" style="animation-delay: 0.6s">
+            <div class="section-header">
+                <h2><i class="fas fa-list-alt"></i> Recent Detections</h2>
+                <div class="auto-refresh-indicator">
+                    <div class="pulse-dot"></div>
+                    <span>Auto-refresh: 5s</span>
+                </div>
+            </div>
+
+            <!-- Cards View -->
+            <div id="cardsView" class="cards-grid">
+                <!-- Cards will be dynamically inserted here -->
+            </div>
+
+            <!-- Table View -->
+            <div id="tableView" class="table-container" style="display: none;">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th><i class="fas fa-hashtag"></i> Plate Number</th>
+                            <th><i class="fas fa-calendar-day"></i> Date</th>
+                            <th><i class="fas fa-clock"></i> Time</th>
+                            <th><i class="fas fa-image"></i> Snapshot</th>
+                            <th><i class="fas fa-user"></i> User</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Rows will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="btn btn-secondary" id="prevPage">
+                    <i class="fas fa-chevron-left"></i>
+                    <span>Previous</span>
+                </button>
+                <span class="pagination-info" id="paginationInfo">Page 1</span>
+                <button class="btn btn-secondary" id="nextPage">
+                    <span>Next</span>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Image Preview Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-overlay" onclick="closeModal('imageModal')"></div>
+        <div class="modal-content glass-effect">
+            <div class="modal-header">
+                <h3><i class="fas fa-image"></i> Plate Snapshot</h3>
+                <button class="modal-close" onclick="closeModal('imageModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="modalImage" src="" alt="Plate snapshot">
+            </div>
+        </div>
+    </div>
+
+    <!-- Logs Modal -->
+    <div id="logsModal" class="modal">
+        <div class="modal-overlay" onclick="closeModal('logsModal')"></div>
+        <div class="modal-content glass-effect modal-large">
+            <div class="modal-header">
+                <h3><i class="fas fa-terminal"></i> System Logs</h3>
+                <button class="modal-close" onclick="closeModal('logsModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <pre id="logsContent" class="logs-viewer"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app_pro.js"></script>
+</body>
+
+</html>

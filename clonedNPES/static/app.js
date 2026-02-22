@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const qs = new URLSearchParams({ plate, date });
     const res = await fetch('/api/plates?' + qs.toString());
     plates = await res.json();
+  // server provides newest-first ordering; render as-is
     renderStats();
     renderTablePage();
   }

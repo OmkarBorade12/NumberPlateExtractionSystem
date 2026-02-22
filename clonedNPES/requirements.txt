@@ -1,9 +1,26 @@
-opencv-python
-torch
-torchvision
-easyocr
-numpy
-matplotlib
-Pillow
-ultralytics
-Flask
+# Core Dependencies - Optimized for 8GB RAM
+opencv-python==4.9.0.80
+numpy==1.24.3
+Pillow==10.2.0
+
+# YOLOv11 - Lightweight Detection
+ultralytics==8.1.0
+
+# PaddleOCR - Superior OCR Engine
+paddlepaddle==2.6.0
+paddleocr==2.7.0.3
+
+# Web Framework
+Flask==3.0.0
+Flask-CORS==4.0.0
+
+# Database
+pandas==2.1.4
+openpyxl==3.1.2
+xlsxwriter==3.1.9
+
+# Security
+werkzeug==3.0.1
+
+# Performance & Threading
+psutil==5.9.7

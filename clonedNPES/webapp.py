@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, send_from_directory, request, send_file, session, redirect, url_for, flash
+from flask import Flask, render_template, jsonify, send_from_directory, request, send_file, session, redirect, url_for, flash, Response
 import csv
 import os
 import subprocess
@@ -8,10 +8,21 @@ from threading import Lock
 from flask import abort
 from plate_utils import initialize_plate_cache
 from plate_utils import get_last_seen_iso, get_top_n
+try:
+    from database_utils import get_recent_detections, get_db_connection
+    params_db_available = True
+except ImportError:
+    params_db_available = False
 import io
 import pandas as pd
 import json
+import cv2
+import logging
 from werkzeug.security import generate_password_hash, check_password_hash
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # simple token auth: only enable when WEBAPP_API_KEY is set in the environment
 API_KEY = os.environ.get('WEBAPP_API_KEY')
@@ -97,7 +108,11 @@ def read_csv_rows():
             image_basename = os.path.basename(image) if image else ''
             user = (row.get('User') or row.get('user') or '').strip()
             rows_out.append({'plate': plate.upper(), 'date': date, 'time': time, 'image': image_basename, 'user': user})
-    return rows_out
+    # return rows newest-first so the UI shows the latest detection at the top
+    try:
+        return rows_out[::-1]
+    except Exception:
+        return rows_out
 
 
 def proc_running():
@@ -107,11 +122,26 @@ def proc_running():
 
 @app.route('/')
 def index():
-    # If API key is not configured, require a logged-in session to view the dashboard.
+    # Redirect to professional UI by default
+    return redirect(url_for('index_pro'))
+
+
+@app.route('/classic')
+def index_classic():
+    # Classic UI (legacy)
     if not API_KEY:
         if not session.get('user'):
             return redirect(url_for('login'))
     return render_template('index.html')
+
+
+@app.route('/pro')
+def index_pro():
+    # Professional UI (new)
+    if not API_KEY:
+        if not session.get('user'):
+            return redirect(url_for('login'))
+    return render_template('index_pro.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -184,9 +214,31 @@ def api_plates():
     return jsonify(rows)
 
 
+@app.route('/api/db/test')
+def api_db_test():
+    if not params_db_available:
+        return jsonify({'error': 'Database module not loaded'})
+    try:
+        conn = get_db_connection()
+        rows = conn.execute('SELECT * FROM detections ORDER BY id DESC LIMIT 20').fetchall()
+        conn.close()
+        return jsonify([dict(row) for row in rows])
+    except Exception as e:
+        return jsonify({'error': str(e)})
+
+
 @app.route('/api/status')
 def api_status():
-    return jsonify({'running': proc_running()})
+    try:
+        from web_detection import is_detection_running, get_detection_stats
+        running = is_detection_running()
+        stats = get_detection_stats() if running else {}
+        return jsonify({
+            'running': running,
+            'stats': stats
+        })
+    except:
+        return jsonify({'running': False, 'stats': {}})
 
 
 @app.route('/api/latest')
@@ -194,7 +246,8 @@ def api_latest():
     rows = read_csv_rows()
     # return the most recent N rows
     n = int(request.args.get('n', '10'))
-    return jsonify(rows[-n:][::-1])
+    # read_csv_rows now returns newest-first, so take the first n rows
+    return jsonify(rows[:n])
 
 
 @app.route('/api/summary')
@@ -214,42 +267,111 @@ def snapshot_file(filename):
 
 @app.route('/api/start', methods=['POST'])
 def api_start():
-    global proc
     # auth: accept API key or logged-in session when API key not set
     if not _check_token_or_session():
         return jsonify({'status': 'unauthorized'}), 401
-    with proc_lock:
-        if proc is not None and proc.poll() is None:
+    
+    try:
+        from web_detection import start_detection, is_detection_running
+        
+        if is_detection_running():
             return jsonify({'status': 'already_running'})
-        # start main.py as separate process
-        python = sys.executable or 'python'
-        # redirect stdout/stderr to log file for troubleshooting
-        logf = open(LOG_FILE, 'ab')
-        # set DETECTOR_USER in the child environment so plate_utils can record which user produced detections
-        env = os.environ.copy()
+        
+        # Set user in environment for detection
         if session.get('user'):
-            env['DETECTOR_USER'] = session.get('user')
-        proc = subprocess.Popen([python, 'main.py'], stdout=logf, stderr=subprocess.STDOUT, env=env)
-        return jsonify({'status': 'started'})
+            os.environ['DETECTOR_USER'] = session.get('user')
+        
+        success = start_detection()
+        
+        if success:
+            logger.info("✓ Detection started successfully")
+            return jsonify({'status': 'started'})
+        else:
+            logger.error("✗ Failed to start detection")
+            return jsonify({'status': 'failed', 'error': 'Could not start detection'}), 500
+            
+    except Exception as e:
+        import traceback
+        error_details = traceback.format_exc()
+        logger.error(f"Error starting detection: {error_details}")
+        return jsonify({'status': 'error', 'error': str(e), 'details': error_details}), 500
 
 
 @app.route('/api/stop', methods=['POST'])
 def api_stop():
-    global proc
     # auth: accept API key or logged-in session when API key not set
     if not _check_token_or_session():
         return jsonify({'status': 'unauthorized'}), 401
-    with proc_lock:
-        if proc is None or proc.poll() is not None:
+    
+    try:
+        from web_detection import stop_detection, is_detection_running
+        
+        if not is_detection_running():
             return jsonify({'status': 'not_running'})
+        
+        success = stop_detection()
+        
+        if success:
+            logger.info("✓ Detection stopped")
+            return jsonify({'status': 'stopped'})
+        else:
+            return jsonify({'status': 'failed'}), 500
+            
+    except Exception as e:
+        logger.error(f"Error stopping detection: {e}")
+        return jsonify({'status': 'error', 'error': str(e)}), 500
+
+
+@app.route('/api/video_feed')
+def video_feed():
+    """Video streaming route for live camera feed"""
+    def generate():
         try:
-            proc.terminate()
-        except Exception:
-            try:
-                proc.kill()
-            except Exception:
-                pass
-        return jsonify({'status': 'stopped'})
+            from web_detection import get_video_frame
+            
+            while True:
+                frame = get_video_frame()
+                
+                if frame is None:
+                    # Send a placeholder frame
+                    frame = create_placeholder_frame()
+                
+                # Encode frame as JPEG
+                ret, buffer = cv2.imencode('.jpg', frame, [cv2.IMWRITE_JPEG_QUALITY, 80])
+                
+                if not ret:
+                    time.sleep(0.01)
+                    continue
+                
+                frame_bytes = buffer.tobytes()
+                
+                # Yield frame in multipart format
+                yield (b'--frame\r\n'
+                       b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
+                
+                # Limit streaming FPS to save bandwidth/CPU
+                time.sleep(0.03)
+                
+        except GeneratorExit:
+            pass
+        except Exception as e:
+            logger.error(f"Video feed error: {e}")
+    
+    return Response(generate(),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
+def create_placeholder_frame():
+    """Create a placeholder frame when no video available"""
+    import numpy as np
+    frame = np.zeros((480, 640, 3), dtype=np.uint8)
+    frame[:] = (30, 30, 30)
+    
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    cv2.putText(frame, "Starting camera...", (180, 240), 
+                font, 1.0, (255, 255, 255), 2)
+    
+    return frame
 
 
 @app.route('/api/logs')
