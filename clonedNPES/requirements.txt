@@ -1,20 +1,20 @@
-# Core Dependencies - Optimized for 8GB RAM
-opencv-python==4.9.0.80
-numpy==1.24.3
+# Core Dependencies - Python 3.12 compatible
+opencv-python==4.6.0.66
+numpy==1.26.4
 Pillow==10.2.0
 
-# YOLOv11 - Lightweight Detection
+# YOLO Detection
 ultralytics==8.1.0
 
-# PaddleOCR - Superior OCR Engine
-paddlepaddle==2.6.0
+# PaddleOCR - OCR Engine
+paddlepaddle==2.6.2
 paddleocr==2.7.0.3
 
 # Web Framework
 Flask==3.0.0
 Flask-CORS==4.0.0
 
-# Database
+# Database & Export
 pandas==2.1.4
 openpyxl==3.1.2
 xlsxwriter==3.1.9
