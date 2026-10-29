@@ -4,6 +4,7 @@ import os
 import subprocess
 import signal
 import sys
+import time
 from threading import Lock
 from flask import abort
 from plate_utils import initialize_plate_cache
@@ -18,6 +19,7 @@ import pandas as pd
 import json
 import cv2
 import logging
+from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 
 # Configure logging
@@ -194,6 +196,21 @@ def logout():
     return redirect(url_for('index'))
 
 
+def _filter_rows(rows, plate_q='', date_q=''):
+    """Apply case-insensitive plate substring and date substring filters."""
+    if plate_q:
+        rows = [r for r in rows if plate_q in r['plate']]
+    if date_q:
+        rows = [r for r in rows if date_q in r['date']]
+    return rows
+
+
+def _registry_key(plate):
+    """Canonical key for the vehicle registry: normalized, no spaces."""
+    from plate_utils import normalize_plate
+    return normalize_plate(plate).replace(' ', '')
+
+
 @app.route('/api/plates')
 def api_plates():
     plate_q = request.args.get('plate', '').strip().upper()
@@ -207,11 +224,148 @@ def api_plates():
         else:
             # not logged in - return empty
             rows = []
-    if plate_q:
-        rows = [r for r in rows if plate_q in r['plate']]
-    if date_q:
-        rows = [r for r in rows if date_q in r['date']]
-    return jsonify(rows)
+    rows = _filter_rows(rows, plate_q, date_q)
+    # optional windowed pagination (backwards compatible: returns a plain list)
+    try:
+        limit = max(0, int(request.args.get('limit', '0')))
+        offset = max(0, int(request.args.get('offset', '0')))
+    except (TypeError, ValueError):
+        limit, offset = 0, 0
+    resp = jsonify(rows[offset:offset + limit] if limit else rows)
+    resp.headers['X-Total-Count'] = str(len(rows))
+    return resp
+
+
+@app.route('/api/plates/<plate>', methods=['DELETE'])
+def api_delete_plate(plate):
+    """Delete every record of a plate from the CSV and the database."""
+    if not _check_token_or_session():
+        return jsonify({'status': 'unauthorized'}), 401
+    target = plate.strip().upper()
+    rows = read_csv_rows()
+    kept = [r for r in rows if r['plate'] != target]
+    removed = len(rows) - len(kept)
+    if removed == 0:
+        return jsonify({'status': 'not_found', 'removed': 0}), 404
+    # rewrite the CSV without the deleted plate
+    fieldnames = ['Plate Text', 'Date', 'Time', 'Image Path', 'User']
+    with open(CSV_FILE, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        for r in reversed(kept):  # read_csv_rows is newest-first; restore file order
+            writer.writerow({'Plate Text': r['plate'], 'Date': r['date'],
+                             'Time': r['time'], 'Image Path': r['image'],
+                             'User': r['user']})
+    # best-effort cleanup in the database too
+    if params_db_available:
+        try:
+            conn = get_db_connection()
+            conn.execute('DELETE FROM detections WHERE UPPER(plate_text) = ?', (target,))
+            conn.commit()
+            conn.close()
+        except Exception as e:
+            logger.warning(f"Could not delete plate from DB: {e}")
+    # refresh in-memory counts
+    try:
+        initialize_plate_cache()
+    except Exception:
+        pass
+    return jsonify({'status': 'deleted', 'removed': removed})
+
+
+@app.route('/api/stats')
+def api_stats():
+    """Aggregated analytics: per-day totals, per-hour histogram, top plates."""
+    rows = read_csv_rows()
+    per_day = {}
+    per_hour = {}
+    for r in rows:
+        day = r['date'] or 'unknown'
+        hour = (r['time'] or '')[:2] or 'unknown'
+        per_day[day] = per_day.get(day, 0) + 1
+        per_hour[hour] = per_hour.get(hour, 0) + 1
+    return jsonify({
+        'total': len(rows),
+        'unique': len(set(r['plate'] for r in rows)),
+        'per_day': dict(sorted(per_day.items())),
+        'per_hour': dict(sorted(per_hour.items())),
+        'top': get_top_n(10),
+    })
+
+
+@app.route('/api/health')
+def api_health():
+    running = False
+    try:
+        from web_detection import is_detection_running
+        running = is_detection_running()
+    except Exception:
+        pass
+    rows = read_csv_rows()
+    return jsonify({
+        'status': 'ok',
+        'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+        'detection_running': running,
+        'total_detections': len(rows),
+        'unique_plates': len(set(r['plate'] for r in rows)),
+    })
+
+
+@app.route('/api/vehicles')
+def api_vehicles():
+    """List the full vehicle registry."""
+    if not params_db_available:
+        return jsonify({'error': 'Database module not loaded'}), 503
+    try:
+        conn = get_db_connection()
+        rows = conn.execute('SELECT * FROM vehicle_registry ORDER BY plate_text').fetchall()
+        conn.close()
+        return jsonify([dict(r) for r in rows])
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/vehicle/<plate>', methods=['GET', 'POST'])
+def api_vehicle(plate):
+    """Look up (GET) or register/update (POST) a vehicle in the registry."""
+    if not params_db_available:
+        return jsonify({'error': 'Database module not loaded'}), 503
+    key = _registry_key(plate)
+    if request.method == 'POST':
+        if not _check_token_or_session():
+            return jsonify({'status': 'unauthorized'}), 401
+        owner_name = (request.form.get('owner_name') or
+                      (request.get_json(silent=True) or {}).get('owner_name', '')).strip()
+        vehicle_model = (request.form.get('vehicle_model') or
+                         (request.get_json(silent=True) or {}).get('vehicle_model', '')).strip()
+        registration_date = (request.form.get('registration_date') or
+                             (request.get_json(silent=True) or {}).get('registration_date', '')).strip()
+        if not owner_name:
+            return jsonify({'status': 'error', 'error': 'owner_name is required'}), 400
+        try:
+            conn = get_db_connection()
+            conn.execute('''
+                INSERT INTO vehicle_registry (plate_text, owner_name, vehicle_model, registration_date)
+                VALUES (?, ?, ?, ?)
+                ON CONFLICT(plate_text) DO UPDATE SET
+                    owner_name=excluded.owner_name,
+                    vehicle_model=excluded.vehicle_model,
+                    registration_date=excluded.registration_date
+            ''', (key, owner_name, vehicle_model, registration_date))
+            conn.commit()
+            conn.close()
+        except Exception as e:
+            return jsonify({'status': 'error', 'error': str(e)}), 500
+    try:
+        conn = get_db_connection()
+        row = conn.execute('SELECT * FROM vehicle_registry WHERE plate_text = ?',
+                           (key,)).fetchone()
+        conn.close()
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+    if row is None:
+        return jsonify({'status': 'not_found', 'plate': key}), 404
+    return jsonify(dict(row))
 
 
 @app.route('/api/db/test')
@@ -245,7 +399,10 @@ def api_status():
 def api_latest():
     rows = read_csv_rows()
     # return the most recent N rows
-    n = int(request.args.get('n', '10'))
+    try:
+        n = max(1, int(request.args.get('n', '10')))
+    except (TypeError, ValueError):
+        n = 10
     # read_csv_rows now returns newest-first, so take the first n rows
     return jsonify(rows[:n])
 
@@ -396,11 +553,20 @@ def api_export():
         return jsonify({'status': 'unauthorized'}), 401
     if not os.path.exists(CSV_FILE):
         return jsonify({'status': 'no_file'}), 404
+    # optional row filters (applies to both csv and xlsx)
+    plate_q = request.args.get('plate', '').strip().upper()
+    date_q = request.args.get('date', '').strip()
+    filtered = bool(plate_q or date_q)
     # also support xlsx export via ?format=xlsx
     fmt = request.args.get('format', '').lower()
     if fmt == 'xlsx':
         try:
             df = pd.read_csv(CSV_FILE)
+            if filtered:
+                if plate_q and 'Plate Text' in df.columns:
+                    df = df[df['Plate Text'].astype(str).str.contains(plate_q, case=False, na=False)]
+                if date_q and 'Date' in df.columns:
+                    df = df[df['Date'].astype(str).str.contains(date_q, na=False)]
             bio = io.BytesIO()
             with pd.ExcelWriter(bio, engine='xlsxwriter') as writer:
                 df.to_excel(writer, index=False, sheet_name='Detections')
@@ -408,6 +574,16 @@ def api_export():
             return send_file(bio, as_attachment=True, download_name='detected_plates.xlsx', mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
         except Exception:
             return jsonify({'status': 'error_creating_xlsx'}), 500
+    if filtered:
+        rows = _filter_rows(read_csv_rows(), plate_q, date_q)
+        text = io.StringIO()
+        writer = csv.writer(text)
+        writer.writerow(['Plate Text', 'Date', 'Time', 'Image Path', 'User'])
+        for r in reversed(rows):  # restore chronological file order
+            writer.writerow([r['plate'], r['date'], r['time'], r['image'], r['user']])
+        bio = io.BytesIO(text.getvalue().encode('utf-8'))
+        bio.seek(0)
+        return send_file(bio, as_attachment=True, download_name='detected_plates.csv', mimetype='text/csv')
     return send_from_directory(os.getcwd(), CSV_FILE, as_attachment=True)
 
 

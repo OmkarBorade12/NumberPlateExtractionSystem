@@ -68,6 +68,41 @@ if 'langchain.text_splitter' not in sys.modules:
 logger = logging.getLogger(__name__)
 
 
+def parse_ocr_result(ocr_results):
+    """Parse PaddleOCR output into (text, confidence).
+
+    Handles the return formats PaddleOCR 2.x/3.x produces:
+      Format A: [[[[box], [text, score]], ...]]  (det+rec)
+      Format B: ('text', score)                  (rec only, single tuple)
+      Format C: [('text', score), ...]           (rec only, list of tuples)
+    Returns (None, 0.0) when nothing usable is found.
+    """
+    detected_text = None
+    detected_conf = 0.0
+
+    if ocr_results and isinstance(ocr_results, list):
+        res = ocr_results[0]
+        if res:
+            # Format A: [[[[box], [text, score]...]]] (Standard)
+            if isinstance(res, list) and len(res) > 0 and isinstance(res[0], (list, tuple)) and len(res[0]) == 2 and isinstance(res[0][1], (list, tuple)):
+                # Find best confidence
+                best = max(res, key=lambda x: x[1][1])
+                detected_text = best[1][0]
+                detected_conf = best[1][1]
+
+            # Format B: [('text', 0.9)] (Rec Only)
+            elif isinstance(res, (list, tuple)) and len(res) == 2 and isinstance(res[0], str):
+                detected_text = res[0]
+                detected_conf = res[1]
+
+            # Format C: [[('text', 0.9)]] (Rec Only list)
+            elif isinstance(res, list) and len(res) > 0 and isinstance(res[0], (list, tuple)) and len(res[0]) == 2 and isinstance(res[0][0], str):
+                detected_text = res[0][0]
+                detected_conf = res[0][1]
+
+    return detected_text, detected_conf
+
+
 class WebANPREngine:
     """
     Web-based ANPR engine that runs in background
@@ -361,29 +396,7 @@ class WebANPREngine:
                         ocr_results = self.ocr_reader.ocr([ocr_img], cls=False)
                     
                     # 2. Parse results
-                    detected_text = None
-                    detected_conf = 0.0
-                    
-                    if ocr_results and isinstance(ocr_results, list):
-                        # Handle different return formats
-                        res = ocr_results[0]
-                        if res:
-                            # Format A: [[[[box], [text, score]...]]] (Standard)
-                            if isinstance(res, list) and len(res) > 0 and isinstance(res[0], (list, tuple)) and len(res[0]) == 2 and isinstance(res[0][1], (list, tuple)):
-                                # Find best confidence
-                                best = max(res, key=lambda x: x[1][1])
-                                detected_text = best[1][0]
-                                detected_conf = best[1][1]
-                                
-                            # Format B: [('text', 0.9)] (Rec Only)
-                            elif isinstance(res, (list, tuple)) and len(res) == 2 and isinstance(res[0], str):
-                                detected_text = res[0]
-                                detected_conf = res[1]
-                                
-                            # Format C: [[('text', 0.9)]] (Rec Only list)
-                            elif isinstance(res, list) and len(res) > 0 and isinstance(res[0], (list, tuple)) and isinstance(res[0][0], str):
-                                detected_text = res[0][0]
-                                detected_conf = res[0][1]
+                    detected_text, detected_conf = parse_ocr_result(ocr_results)
 
                     if detected_text:
                         text = detected_text

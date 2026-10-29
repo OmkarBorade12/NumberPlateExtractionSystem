@@ -75,7 +75,7 @@ def get_recent_detections(limit=10):
     
     try:
         detections = conn.execute(
-            'SELECT * FROM detections ORDER BY captured_at DESC LIMIT ?',
+            'SELECT * FROM detections ORDER BY id DESC LIMIT ?',
             (limit,)
         ).fetchall()
         
